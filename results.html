@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Comparison Results for {{ product_name }}</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .comparison-container {
+            display: flex;
+            justify-content: space-around;
+            width: 90%;
+            margin: 40px 0;
+        }
+
+        .results-section {
+            width: 23%; /* Adjusted to fit all sections side by side */
+            min-width: 250px; /* Minimum width for better appearance */
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            color: #333;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex; /* Use flex to align items */
+            justify-content: space-between; /* Space between link and price */
+            align-items: center; /* Center items vertically */
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            color: #4169E1;
+            text-decoration: none;
+            font-weight: bold;
+            flex-grow: 1; /* Allow the link to take available space */
+            margin-right: 10px; /* Space between link and price */
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .price {
+            color: #2E8B57; /* SeaGreen for the price */
+            font-weight: bold;
+            white-space: nowrap; /* Prevent price from wrapping */
+        }
+
+        /* Add some padding at the bottom for better visual balance */
+        .results-section:last-of-type {
+            padding-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Price Comparison Results for {{ product_name }}</h1>
+
+    <div class="comparison-container">
+        <!-- Amazon Results Section -->
+        <div class="results-section">
+            <h2>Amazon Results</h2>
+            <ul>
+                {% if amazon_results %}
+                    {% for result in amazon_results %}
+                        <li>
+                            <a href="{{ result.url }}">{{ result.name }}</a>
+                            <span class="price">{{ result.price }}</span>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li>No results found on Amazon.</li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <!-- Flipkart Results Section -->
+        <div class="results-section">
+            <h2>Flipkart Results</h2>
+            <ul>
+                {% if flipkart_results %}
+                    {% for result in flipkart_results %}
+                        <li>
+                            <a href="{{ result.url }}">{{ result.name }}</a>
+                            <span class="price">{{ result.price }}</span>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li>No results found on Flipkart.</li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <!-- Croma Results Section -->
+        <div class="results-section">
+            <h2>Croma Results</h2>
+            <ul>
+                {% if croma_results %}
+                    {% for result in croma_results %}
+                        <li>
+                            <a href="{{ result.url }}">{{ result.name }}</a>
+                            <span class="price">{{ result.price }}</span>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li>No results found on Croma.</li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <!-- Snapdeal Results Section -->
+        <div class="results-section">
+            <h2>Snapdeal Results</h2>
+            <ul>
+                {% if snapdeal_results %}
+                    {% for result in snapdeal_results %}
+                        <li>
+                            <a href="{{ result.url }}">{{ result.name }}</a>
+                            <span class="price">{{ result.price }}</span>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li>No results found on Snapdeal.</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
