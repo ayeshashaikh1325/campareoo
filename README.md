@@ -34,11 +34,11 @@ Campareoo is a Python-based web scraping project that compares product prices ac
 
 ---
 📦 Example Output
-Website	Product Name	Price	Link
-Amazon	Logitech Mouse M170	₹699	🔗 Link
-Flipkart	Logitech M170 Wireless	₹649	🔗 Link
-Croma	Logitech Mouse M170	₹799	🔗 Link
-Snapdeal	Logitech M170	₹670	🔗 Link
+Website	Product Name	Price	Link</br>
+Amazon	Logitech Mouse M170	₹699	🔗 Link</br>
+Flipkart	Logitech M170 Wireless	₹649	🔗 Link</br>
+Croma	Logitech Mouse M170	₹799	🔗 Link</br>
+Snapdeal	Logitech M170	₹670	🔗 Link</br>
 
 ---
 🧠 Author
